@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dosya Listesi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li:first-child {
+            font-weight: bold;
+        }
+
+        li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .empty-message {
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Doçent Dosya Listesi</h1>
+    <ul>
+        {% for basvuru in basvurular %}
+            <li>
+                <strong>Ad:</strong> {{ basvuru.ad }}<br>
+                <strong>Soyad:</strong> {{ basvuru.soyad }}<br>
+                <strong>E-mail:</strong> {{ basvuru.email }}<br>
+                <strong>Telefon:</strong> {{ basvuru.telefon }}<br>
+                <strong>Onay Belgesi:</strong> <a href="{{ basvuru.onay.url }}">{{ basvuru.onay.name }}</a><br>
+                <strong>Özgeçmiş:</strong> <a href="{{ basvuru.ozgecmis.url }}">{{ basvuru.ozgecmis.name }}</a><br>
+                <strong>AYÖK belgesi:</strong> <a href="{{ basvuru.AYOK.url }}">{{ basvuru.AYOK.name }}</a><br>
+                <strong>FORM-3:</strong> <a href="{{ basvuru.form3.url }}">{{ basvuru.form3.name }}</a><br>
+                <strong>FORM-4:</strong> <a href="{{ basvuru.form4.url }}">{{ basvuru.form4.name }}</a><br>
+                <strong>Tez:</strong> <a href="{{ basvuru.tez.url }}">{{ basvuru.tez.name }}</a><br>
+                <strong>FORM-7:</strong> <a href="{{ basvuru.form7.url }}">{{ basvuru.form7.name }}</a><br>
+                <strong>Yabancı Dil Sınav Sonuç Belgesi:</strong> <a href="{{ basvuru.yds.url }}">{{ basvuru.yds.name }}</a><br>
+            <strong>Dosya Ekleme Tarihi:</strong> {{ basvuru.upload_date|date:"d.m.Y H:i"}}
+            </li>
+        {% empty %}
+            <li class="empty-message">Henüz dosya bulunmamaktadır.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

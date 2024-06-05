@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+<style>
+  .form-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid gray;
+    padding: 20px;
+    margin: auto;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .button-container button {
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px gray;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .message-container {
+    font-family: Arial;
+    font-size: 16px;
+    color: blue;
+    margin-top: 10px;
+  }
+</style>
+
+<div class="form-container">
+<form method="post">
+ {% csrf_token %}
+<br><br>
+ {{form | crispy}}
+ <div class="button-container">
+ <button type="submit">İndir</button>
+ </div>
+</form>
+</div>
+{% if messages %}
+<div class="message-container">
+<ul>
+ {% for message in messages %}
+ <li>{{ message }}</li>
+ {% endfor %}
+</ul>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dosya Listesi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li:first-child {
+            font-weight: bold;
+        }
+
+        li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .empty-message {
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Doktor Öğretim Üyesi Ön Başvuru Dosya Listesi</h1>
+    <ul>
+        {% for basvuru in basvurular %}
+            <li>
+                <strong>Ad:</strong> {{ basvuru.ad }}<br>
+                <strong>Soyad:</strong> {{ basvuru.soyad }}<br>
+                <strong>E-mail:</strong> {{ basvuru.email }}<br>
+                <strong>Telefon:</strong> {{ basvuru.telefon }}<br>
+                <strong>Eser :</strong> <a href="{{ basvuru.eser.url }}">{{ basvuru.eser.name }}</a><br>
+                <strong>Eser Türü :</strong>{{basvuru.eser_türü }}<br>
+                <strong>Makale:</strong> <a href="{{ basvuru.makale.url }}">{{ basvuru.makale.name }}</a><br>
+                 <strong>Makale Türü:</strong>{{basvuru.makale_türü }}<br>
+                <strong>Doktora Tezi:</strong> <a href="{{ basvuru.doktora_tezi.url }}">{{ basvuru.doktora_tezi.name }}</a><br>
+                 <strong>Makale Türü:</strong>{{basvuru.tez_türü}}<br>
+                <strong>Makale:</strong> <a href="{{ basvuru.makale.url }}">{{ basvuru.makale.name }}</a><br>
+                <strong>Yabancı Dil Sınav Sonuç Belgesi:</strong> <a href="{{ basvuru.yds_belge.url }}">{{ basvuru.yds_belge.name }}</a><br>
+                <strong>Dosya Ekleme Tarihi:</strong> {{ basvuru.upload_date|date:"d.m.Y H:i"}}
+            </li>
+        {% empty %}
+            <li class="empty-message">Henüz dosya bulunmamaktadır.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

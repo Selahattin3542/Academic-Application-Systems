@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Etkinlik Listesi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li:first-child {
+            font-weight: bold;
+        }
+
+        li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .empty-message {
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Etkinlik Listesi</h1>
+    <ul>
+        {% for etkinlik in etkinlikler %}
+            <li>
+                <strong>Ad:</strong> {{ etkinlik.ad }}<br>
+                <strong>Başlangıç Tarihi:</strong> {{ etkinlik.bastarih }}<br>
+                <strong>Bitiş Tarihi:</strong> {{ etkinlik.bittar }}<br>
+                <strong>Açıklama:</strong> {{ etkinlik.aciklama }}
+            </li>
+        {% empty %}
+            <li class="empty-message">Henüz etkinlik yok.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

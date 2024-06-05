@@ -1,0 +1,24 @@
+from django import forms
+from .models import Application
+from django.utils import timezone
+
+class ApplicationForm(forms.ModelForm):
+    class Meta:
+        model = Application
+        fields = (
+   'ad', 'soyad', 'email', 'telefon','eser','eser_türü', 'makale', 'makale_türü', 'doktora_tezi','tez_türü','yds_belge','upload_date')
+        widgets= {
+            "ad": forms.TextInput(attrs={"class": "form-control"}),
+            "soyad": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.TextInput(attrs={"class": "form-control"}),
+            "telefon": forms.TextInput(attrs={"class": "form-control"}),
+            "eser":forms.ClearableFileInput(attrs={"class" : "form-control"}),
+            "eser_türü": forms.Select(attrs={"class": "form-control"}),
+            "makale": forms.ClearableFileInput(attrs={"class": "form-control"}),
+            "makale_türü": forms.Select(attrs={"class": "form-control"}),
+            "doktora_tezi": forms.ClearableFileInput(attrs={"class": "form-control"}),
+            "tez_türü": forms.Select(attrs={"class": "form-control"}),
+            "yds_belge": forms.ClearableFileInput(attrs={"class": "form-control"}),
+            "uploaddate": forms.DateTimeField(initial=timezone.now, widget=forms.HiddenInput()),
+
+     }

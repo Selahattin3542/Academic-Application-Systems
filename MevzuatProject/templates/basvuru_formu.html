@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <div class="row">
+    <div class="col-md-6 offset-md-3">
+<h1>Akademik Ön Başvuru Formu</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <br>
+    <button type="submit" class="btn btn-primary">Başvur</button>
+</form>
+    </div>
+    </div>
+{% endblock %}

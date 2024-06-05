@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Anasayfa</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">Hakkımızda <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Belgeler
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+          <a class="dropdown-item" href="/YDS">YDS</a>
+          <a class="dropdown-item" href="/makale">Makale</a>
+          <a class="dropdown-item" href="/form">Formlar</a>
+          <a class="dropdown-item" href="/yonetmelik">Konya Teknik Üniversitesi Akademik Atama - Yükseltme Ölçütleri Ve Uygulama Esasları (22.11.2022 Tarihinden İtibaren Geçerli)</a>
+            <a class="dropdown-item" href="/event/liste">Başvuru İlan Listesi</a>
+            <a class="dropdown-item" href="/fileupload/file_upload">Dosya Yükle</a>
+        </div>
+      </li>
+
+
+        <li class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ön Başvuru
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                <a class="dropdown-item" href="/odrfile/odrfile">Doktor Öğretim Üyesi</a>
+                <a class="dropdown-item" href="/odfile/odfile">Doçent</a>
+                <a class="dropdown-item" href="/opfile/opfile">Profesör</a>
+                </div>
+            </li>
+        <li class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Akademik Unvanlar
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                <a class="dropdown-item" href="/drfile/drfile">Doktor Öğretim Üyesi</a>
+                <a class="dropdown-item" href="/dfile/dfile">Doçent</a>
+                <a class="dropdown-item" href="/pfile/pfile">Profesör</a>
+                </div>
+
+
+
+    </ul>
+
+<ul class="navbar-nav ml-auto">
+  {% if request.user.is_authenticated %}
+    <li class="nav-item active">
+      <a class="nav-link" href="/event/add_event">Başvuru İlan Ekle</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="/fileupload/upload">Yüklenen Dosyalar</a>
+    </li>
+    <li class="nav-item active dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Ön Başvuru Listeleri
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+        <a class="dropdown-item" href="/odrfile/odrupload">Doktor Öğretim Üyesi</a>
+        <a class="dropdown-item" href="/odfile/odupload">Doçent</a>
+        <a class="dropdown-item" href="/opfile/opupload">Profesör</a>
+      </div>
+    </li>
+    <li class="nav-item active dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Başvuru Listeleri
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+        <a class="dropdown-item" href="/drfile/drupload">Doktor Öğretim Üyesi</a>
+        <a class="dropdown-item" href="/dfile/dupload">Doçent</a>
+        <a class="dropdown-item" href="/pfile/pupload">Profesör</a>
+      </div>
+    </li>
+
+  <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Puanlama Kategorileri
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/akategori">A kategorisi</a>
+            <a class="dropdown-item" href="/bkategori">B-C-D kategorileri</a>
+             <a class="dropdown-item" href="/ckategori">E-F-G-H kategorileri</a>
+             <a class="dropdown-item" href="/dkategori">I-J-K-L kategorileri</a>
+
+        </div>
+  </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="/user/logout">Çıkış yap</a>
+    </li>
+  {% else %}
+    <li class="nav-item active">
+      <a class="nav-link" href="/user/login">Giriş Yap</a>
+    </li>
+  {% endif %}
+  <li class="nav-item active">
+    <a class="nav-link" href="/user/register">Kayıt Ol</a>
+  </li>
+</ul>
+
+  </div>
+</nav>
